@@ -1,16 +1,15 @@
 ---
 layout: layouts/base.njk
 title: Contato
-description: Como falar comigo.
+description: Como entrar em contato com a artista Giovanna Pizzini.
 ---
 
-<div class="page">
+<section class="section section--estreita">
 
 # Contato
 
-<p class="lede">Uma linha convidando a pessoa a escrever.</p>
+<p class="lede">Para convites, exposições, textos críticos e aquisição de obras.</p>
 
-O endereço de e-mail do rodapé está em `_data/site.json`, num lugar só, e
-aparece em todas as páginas. Para trocá-lo, mude ali.
+<p class="ficha">Belo Horizonte, MG, Brasil</p>
 
-</div>
+</section>

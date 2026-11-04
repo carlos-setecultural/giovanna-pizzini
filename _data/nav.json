@@ -1,24 +1,7 @@
 [
-  {
-    "label": "Início",
-    "url": "/"
-  },
-  {
-    "label": "Sobre",
-    "url": "/sobre/",
-    "children": [
-      {
-        "label": "Quem sou",
-        "url": "/sobre/"
-      },
-      {
-        "label": "Trajetória",
-        "url": "/sobre/#trajetoria"
-      }
-    ]
-  },
-  {
-    "label": "Contato",
-    "url": "/contato/"
-  }
+  { "label": "Início", "url": "/" },
+  { "label": "O Corpo como Escavação", "url": "/o-corpo-como-escavacao/" },
+  { "label": "Trabalhos", "url": "/trabalhos/" },
+  { "label": "Sobre", "url": "/sobre/" },
+  { "label": "Contato", "url": "/contato/" }
 ]
