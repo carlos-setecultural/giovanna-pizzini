@@ -1,0 +1,13 @@
+{
+  "name": "giovanna-pizzini",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Site da artista visual Giovanna Pizzini",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

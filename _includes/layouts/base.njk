@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} · {{ site.nome }}</title>
+  <meta name="description" content="{{ description or site.descricao }}">
+  <meta name="theme-color" content="#1e2228">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  {# Primeira parada do teclado em qualquer página: salta o menu inteiro e
+     leva ao texto. Fica escondido acima da tela até receber o foco. #}
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__brand" href="/">{{ site.nome }}</a>
+      <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
+        <button type="button" class="menu-close" aria-label="Fechar menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        </button>
+        <ul class="site-nav__list">
+          {% for item in nav %}
+          {% set inSection = item.url != '/' and page.url.startsWith(item.url) %}
+          <li class="site-nav__item{% if item.children %} site-nav__item--has-children{% if inSection %} is-expanded{% endif %}{% endif %}">
+            <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% elif inSection %} aria-current="true"{% endif %}>{{ item.label }}</a>
+            {% if item.children %}
+            {# A seta só aparece no painel do celular: abre e fecha os subitens por toque. #}
+            <button type="button" class="submenu-toggle" aria-expanded="{{ 'true' if inSection else 'false' }}" aria-controls="submenu-{{ loop.index }}" aria-label="Mostrar subpáginas de {{ item.label }}">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <ul class="site-nav__submenu" id="submenu-{{ loop.index }}">
+              {% for child in item.children %}
+              <li><a href="{{ child.url }}"{% if page.url == child.url %} aria-current="page"{% endif %}>{{ child.label }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+      <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>{{ site.descricao }}</p>
+      <p class="site-footer__contact">
+        Contato: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </p>
+    </div>
+  </footer>
+  <script src="/assets/js/menu.js" defer></script>
+  <script src="/assets/js/voltar-ao-topo.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+# gerados automaticamente — nunca entram no repositório
+node_modules/
+_site/
+
+# materiais brutos e de planejamento: originais de fotos, documentos,
+# rascunhos. O repositório recebe só o que o site publica.
+Originais/
+Rascunhos/
+*.docx
+*.xlsx
+
+.DS_Store
+Thumbs.db

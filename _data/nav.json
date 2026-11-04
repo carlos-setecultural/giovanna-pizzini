@@ -1,0 +1,24 @@
+[
+  {
+    "label": "Início",
+    "url": "/"
+  },
+  {
+    "label": "Sobre",
+    "url": "/sobre/",
+    "children": [
+      {
+        "label": "Quem sou",
+        "url": "/sobre/"
+      },
+      {
+        "label": "Trajetória",
+        "url": "/sobre/#trajetoria"
+      }
+    ]
+  },
+  {
+    "label": "Contato",
+    "url": "/contato/"
+  }
+]
