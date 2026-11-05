@@ -12,22 +12,22 @@
 
 :root {
   /* Paleta — troque estes valores pelos seus */
-  --cor-destaque: #1f6f6b;       /* botões, bordas, destaques */
-  --cor-destaque-ink: #185955;   /* o mesmo tom, escurecido para links sobre o fundo claro */
-  --cor-destaque-dark: #144744;  /* botão sob o cursor */
-  --cor-tinta: #1e2228;          /* texto e fundos escuros */
-  --cor-fundo: #f7f6f3;          /* fundo das páginas */
+  --cor-destaque: #8a4a22;       /* botões, bordas, destaques */
+  --cor-destaque-ink: #7a3f1c;   /* o mesmo tom, escurecido para links sobre o fundo claro */
+  --cor-destaque-dark: #653115;  /* botão sob o cursor */
+  --cor-tinta: #1d1a17;          /* texto e fundos escuros */
+  --cor-fundo: #f6f3ee;          /* fundo das páginas */
   --cor-apoio-1: #c98a3c;        /* destaque sobre fundo escuro, ícones */
-  --cor-apoio-2: #4a6b8a;        /* destaque secundário */
-  --cor-apoio-2-ink: #3c5872;    /* o mesmo tom, escurecido para texto sobre o fundo claro */
-  --cor-cinza: #555555;
-  --cor-cinza-claro: #e6e6e6;
-  --cor-cinza-fundo: #f0efec;
+  --cor-apoio-2: #6b6253;        /* destaque secundário */
+  --cor-apoio-2-ink: #564f42;    /* o mesmo tom, escurecido para texto sobre o fundo claro */
+  --cor-cinza: #5a5248;
+  --cor-cinza-claro: #e2dcd2;
+  --cor-cinza-fundo: #efebe4;
 
   /* Fontes — hoje são as do próprio sistema, que carregam na hora.
      Para usar uma fonte de marca, declare um @font-face acima e troque
      o nome aqui. */
-  --font-display: 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
   --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
   --max-width: 1120px;
@@ -841,3 +841,272 @@ body.menu-open .to-top {
 }
 .site-header__brand:hover,
 .site-header__brand:focus { text-decoration: underline; }
+
+/* ------------------------------------------------------------------
+   Site de artista: a imagem em primeiro lugar.
+
+   As regras abaixo foram escritas para este site, depois do molde da
+   RELAHO. Tudo aqui serve a uma coisa só: dar espaço à obra e deixar
+   o texto em segundo plano, sem disputar.
+   ------------------------------------------------------------------ */
+
+/* Coluna estreita para texto corrido — linha curta se lê melhor. */
+.section--estreita > *:not(.bio):not(.par):not(.grade-series) {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Capa da página inicial: imagem de borda a borda com o nome por cima. */
+.capa {
+  position: relative;
+  margin: 0;
+  background: var(--cor-tinta);
+}
+
+.capa img {
+  width: 100%;
+  height: clamp(20rem, 72vh, 44rem);
+  object-fit: cover;
+}
+
+.capa__texto {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2.5rem 1.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+  color: #fff;
+}
+
+.capa__texto h1,
+.capa__texto p {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  color: #fff;
+}
+
+.capa__texto h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.capa__texto p {
+  font-size: 1.05rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* Imagem de abertura de uma página interna. */
+.abertura {
+  margin: 0;
+  background: var(--cor-tinta);
+}
+
+.abertura img {
+  width: 100%;
+  height: clamp(14rem, 46vh, 28rem);
+  object-fit: cover;
+}
+
+/* Ficha: local, data, dimensões. Texto de apoio, nunca protagonista. */
+.ficha {
+  color: var(--cor-cinza);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.nota {
+  color: var(--cor-cinza);
+  font-size: 0.95rem;
+  border-top: 1px solid var(--cor-cinza-claro);
+  padding-top: 1rem;
+}
+
+/* O poema da artista. */
+.poema {
+  margin: 2.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--cor-apoio-1);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+.poema__assinatura {
+  color: var(--cor-apoio-1);
+  font-style: italic;
+  white-space: normal;
+}
+
+.statement {
+  margin: 0;
+  padding: 2rem 0 2rem 1.5rem;
+  border-left: 2px solid var(--cor-apoio-1);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
+
+/* Obra: a imagem manda, a legenda sussurra. */
+.obra {
+  margin: 0 0 3rem;
+}
+
+.obra img {
+  width: 100%;
+  background: var(--cor-cinza-fundo);
+}
+
+.obra--larga img {
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.obra figcaption {
+  margin-top: 0.75rem;
+  color: var(--cor-cinza);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.obra figcaption strong {
+  color: var(--cor-tinta);
+  font-weight: 600;
+}
+
+/* Duas obras lado a lado, uma embaixo da outra no celular. */
+.par {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem;
+  align-items: end;
+}
+
+.par .obra img {
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* Grade de séries: cartão é só imagem e nome. */
+.grade-series {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.serie {
+  display: block;
+  color: inherit;
+}
+
+.serie img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--cor-cinza-fundo);
+}
+
+.serie h3 {
+  margin: 0.75rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.serie:hover { text-decoration: none; }
+.serie:hover h3 { color: var(--cor-destaque-ink); }
+
+/* Série na página Trabalhos: imagem grande de um lado, texto do outro,
+   alternando o lado a cada série. */
+.serie-longa {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  align-items: center;
+  margin: 0 0 4rem;
+}
+
+.serie-longa img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--cor-cinza-fundo);
+}
+
+.serie-longa:nth-child(even) img { order: 2; }
+
+.serie-longa h2 {
+  margin: 0 0 0.25rem;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+.serie-longa .ficha { margin: 0 0 1rem; }
+
+/* Destaque da página inicial. */
+.destaque {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.destaque__imagem img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--cor-cinza-fundo);
+}
+
+/* Biografia com retrato. */
+.bio {
+  display: grid;
+  grid-template-columns: minmax(14rem, 1fr) minmax(18rem, 2fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.bio__retrato {
+  width: 100%;
+  background: var(--cor-cinza-fundo);
+}
+
+.bio__texto h1 { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .bio { grid-template-columns: 1fr; }
+}
+
+/* Currículo: ano à esquerda, item à direita. */
+.curriculo {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem;
+}
+
+.curriculo li {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--cor-cinza-claro);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.curriculo li > span {
+  color: var(--cor-apoio-1);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .curriculo li { grid-template-columns: 1fr; gap: 0.15rem; }
+}
+
+/* O poema vem do Markdown em parágrafos; sem isto, a estrofe abre
+   um buraco grande demais. */
+.poema p { margin: 0 0 1.4rem; }

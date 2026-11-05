@@ -96,3 +96,26 @@ Nada disso pode ser inventado nem deduzido de catálogo.
 - [ ] Ligar **Always Use HTTPS**.
 - [ ] Redirecionamento de `www` para o endereço sem `www`, código 301,
       preservando caminho e query string.
+
+## Pendências abertas pelo protótipo (04/11/2026)
+
+O protótipo usa imagens **recortadas do PDF do portfólio**, não os arquivos
+originais. Tudo abaixo precisa da Giovanna — as decisões do site são dela, não
+da curadoria.
+
+- [ ] **Fotos originais das obras.** As do protótipo vêm do PDF: têm entre 800 e
+      1400 px e já passaram por uma compressão. Servem para ver o site de pé,
+      não para publicar.
+- [ ] **Datas da exposição** O Corpo como Escavação. Hoje a página diz só "2025".
+      Falta o período, e falta confirmar se foi individual.
+- [ ] **E-mail de contato da artista.** O rodapé mostra hoje o e-mail da SETE,
+      como provisório. A página de contato está sem endereço nenhum.
+- [ ] **Uma página por série**, em vez das dez na mesma página de Trabalhos.
+      Decidir quando houver fotos de verdade para cada uma.
+- [ ] **Textos em inglês.** A estrutura em duas línguas ainda não foi feita; o
+      plano é português em `/` e inglês em `/en/`. Os textos vêm da artista.
+- [ ] **Créditos de fotografia.** O portfólio credita André Dala (fotoperformance
+      Projeções sobre a mesa) e Bruno Veiga (desenvolvimento técnico de
+      Bioformações I). Nas demais imagens não há crédito: confirmar quem fotografou.
+- [ ] **Vídeos.** O portfólio tem quatro links de processo e dois de performance.
+      Decidir se entram e onde estão hospedados.

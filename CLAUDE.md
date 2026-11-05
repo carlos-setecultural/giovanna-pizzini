@@ -10,7 +10,7 @@ Estrutura e comandos: ver `README.md`. Tarefas em aberto: ver `TAREFAS.md`.
 ## Quem trabalha aqui
 - Carlos (dono do projeto, **não é programador** — e é quem revisa e aprova
   tudo). Explique o que vai fazer em linguagem simples, antes de fazer, e mostre
-  o resultado no navegador (`npm start` → http://localhost:8080).
+  o resultado no navegador (`npm start` → http://localhost:8081).
 - O conteúdo é da artista: textos, dados das obras, lista de exposições e fotos
   vêm dela. O Carlos não é a fonte desses dados.
 
@@ -48,3 +48,22 @@ Estrutura e comandos: ver `README.md`. Tarefas em aberto: ver `TAREFAS.md`.
   localização, nomes descritivos em minúsculas e com hífen. (O tamanho para
   fotos de obra ainda está em aberto — ver `TAREFAS.md`.)
 - Originais e materiais brutos **não** entram no repositório (ver `.gitignore`).
+
+## Este site não se mistura com o da RELAHO
+
+São dois projetos separados, na mesma máquina e do mesmo Carlos. Nada passa de
+um para o outro: nem conta, nem conteúdo, nem identidade visual.
+
+- **Abra a conversa nesta pasta.** Uma sessão aberta em `relaho-website-1`
+  carrega as regras da Rede, não estas. Se o assunto é a Giovanna, a pasta de
+  trabalho é `site-novo`.
+- **Porta 8081** é deste site; a 8080 é da RELAHO.
+- **Conta do GitHub:** `carlos-setecultural`. A `carlosxmendes` é a da Rede e não
+  entra aqui. O remoto já traz o usuário na URL e o repositório usa
+  `credential.useHttpPath true` — é isso que impede o Windows de mandar a
+  credencial errada.
+- **O molde veio da RELAHO; a identidade, não.** Cores, fontes, textos e
+  estrutura deste site são da artista. Se sobrar algum resquício da Rede no
+  código, ele sai.
+- **Quem decide o conteúdo é a artista Giovanna.** A curadora Cláudia
+  Madella-Auricchio é a contratante pelo edital, não a aprovadora do site.

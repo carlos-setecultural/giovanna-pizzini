@@ -11,7 +11,9 @@ npm install
 npm start
 ```
 
-Abre em `http://localhost:8080` e recarrega sozinho a cada arquivo salvo.
+Abre em `http://localhost:8081` e recarrega sozinho a cada arquivo salvo.
+(A porta 8081 é deste site. A 8080 é do site da RELAHO, para que os dois
+possam rodar ao mesmo tempo sem se atropelar.)
 `npm run build` gera a versão de produção em `_site/`.
 
 ## Estrutura
