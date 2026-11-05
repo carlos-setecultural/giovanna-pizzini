@@ -15,14 +15,17 @@ aparece nas páginas do site.
 
 ## 1. Base técnica — primeiro, porque destrava todo o resto
 
-Hoje a pasta não é um repositório git: nada está versionado, e por isso ainda
-não existe branch, pull request nem endereço de preview.
+O repositório já existe, com branch e pull request. O que falta é a
+hospedagem: sem o projeto na Cloudflare, nenhum pull request ganha endereço
+de preview, e hoje o site só se vê na máquina do Carlos.
 
 - [ ] Escolher o nome definitivo do site e trocar em três lugares: a pasta, o
-      campo `name` do `package.json` e o `_data/site.json`.
-- [ ] `git init`, primeiro commit, e repositório **público** na conta
+      campo `name` do `package.json` e o `_data/site.json`. *(Feito no
+      `package.json` e no `_data/site.json`, como `giovanna-pizzini`. A pasta
+      local ainda se chama `site-novo`.)*
+- [x] `git init`, primeiro commit, e repositório **público** na conta
       `carlos-setecultural`.
-- [ ] Assinar os commits deste site: `git config user.name` e
+- [x] Assinar os commits deste site: `git config user.name` e
       `git config user.email` sem `--global` (vale só nesta pasta).
 - [ ] Ligar a regra da `main`: exigir pull request, com *Required approvals: 0*.
 - [ ] Criar o projeto na Cloudflare: build `npm run build`, saída `_site`.
@@ -71,9 +74,10 @@ arquivo pequeno, e as listagens se montam sozinhas.
       próprias em vez das do sistema.
 - [ ] Criar o favicon e acrescentar as linhas `<link rel="icon">` no
       `_includes/layouts/base.njk`.
-- [ ] Limpar os restos do molde nos comentários do CSS (há menção a "História da
-      Rede") e revisar o `--header-height: 140px`, que foi medido no cabeçalho
-      da RELAHO.
+- [ ] Revisar o `--header-height: 140px`, que foi medido no cabeçalho do molde.
+      O `menu.js` corrige o valor assim que carrega; o 140 px só vale no
+      instante antes disso. *(Os restos do molde nos comentários do CSS já
+      saíram.)*
 - [ ] Escrever a página inicial de verdade, no lugar do texto de exemplo.
 
 ## 5. Material que falta pedir à artista
@@ -119,3 +123,6 @@ da curadoria.
       Bioformações I). Nas demais imagens não há crédito: confirmar quem fotografou.
 - [ ] **Vídeos.** O portfólio tem quatro links de processo e dois de performance.
       Decidir se entram e onde estão hospedados.
+- [ ] **A foto da série ENTRE PELES é um print de tela do Photoshop.** Aparecem
+      os painéis do programa e a barra de tarefas do Windows. Veio assim do
+      recorte do PDF. Precisa sair, tendo ou não substituta à mão.

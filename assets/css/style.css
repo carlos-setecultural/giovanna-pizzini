@@ -6,8 +6,7 @@
    no meio do arquivo — use var(--cor-...).
 
    A estrutura (cabeçalho fixo, menu de celular, cards, rodapé) veio do
-   site da RELAHO. As cores e as fontes são neutras de propósito: são o
-   primeiro lugar onde a sua identidade visual entra.
+   molde. As cores e as fontes são as da artista.
    ------------------------------------------------------------------ */
 
 :root {
@@ -40,8 +39,8 @@
 
 html { scroll-behavior: smooth; }
 
-/* Links de âncora (por exemplo "História da Rede" → #historia): o título
-   precisa parar abaixo do cabeçalho fixo, e não escondido atrás dele. */
+/* Links de âncora (por exemplo /trabalhos/#travessia): o título precisa
+   parar abaixo do cabeçalho fixo, e não escondido atrás dele. */
 main [id] { scroll-margin-top: calc(var(--header-height) + 1rem); }
 
 body {
@@ -664,8 +663,7 @@ main:focus { outline: none; }
   .site-nav__item--has-children:focus-within .site-nav__submenu { display: block; }
   .hero__inner, .intro { grid-template-columns: 1fr; }
   /* Em uma coluna, o vão de 2,5 rem da grade somava ~53 px entre o título
-     "Uma rede feita de encontros" e o texto. Título e texto voltam a ler-se
-     como um bloco só. */
+     e o texto. Título e texto voltam a ler-se como um bloco só. */
   .intro { row-gap: 0.75rem; }
   .intro h2 { margin-bottom: 0; }
 
@@ -845,15 +843,18 @@ body.menu-open .to-top {
 /* ------------------------------------------------------------------
    Site de artista: a imagem em primeiro lugar.
 
-   As regras abaixo foram escritas para este site, depois do molde da
-   RELAHO. Tudo aqui serve a uma coisa só: dar espaço à obra e deixar
-   o texto em segundo plano, sem disputar.
+   As regras abaixo foram escritas para este site, depois do molde.
+   Tudo aqui serve a uma coisa só: dar espaço à obra e deixar o texto
+   em segundo plano, sem disputar.
    ------------------------------------------------------------------ */
 
-/* Coluna estreita para texto corrido — linha curta se lê melhor. */
+/* Coluna estreita para texto corrido — linha curta se lê melhor.
+   Alinhada à esquerda, e não centralizada: assim o texto começa na mesma
+   borda das grades de imagem, que ocupam a coluna inteira. Centralizar
+   aqui dava duas margens esquerdas diferentes na mesma página. */
 .section--estreita > *:not(.bio):not(.par):not(.grade-series) {
   max-width: 44rem;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 
@@ -1088,23 +1089,30 @@ body.menu-open .to-top {
   margin: 0 0 2rem;
 }
 
+/* Ano à esquerda, item à direita — com recuo pendente, não com grade.
+   Em grade, o texto que vem depois do <strong> conta como um item
+   separado e caía na coluna estreita do ano, picado em duas palavras
+   por linha. O recuo pendente mantém a frase inteira numa coluna só. */
 .curriculo li {
-  display: grid;
-  grid-template-columns: 6rem 1fr;
-  gap: 1rem;
-  padding: 0.6rem 0;
+  padding: 0.6rem 0 0.6rem 7rem;
+  text-indent: -7rem;
   border-bottom: 1px solid var(--cor-cinza-claro);
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .curriculo li > span {
+  display: inline-block;
+  width: 7rem;
+  text-indent: 0;
+  vertical-align: top;
   color: var(--cor-apoio-1);
   font-variant-numeric: tabular-nums;
 }
 
 @media (max-width: 640px) {
-  .curriculo li { grid-template-columns: 1fr; gap: 0.15rem; }
+  .curriculo li { padding-left: 0; text-indent: 0; }
+  .curriculo li > span { display: block; width: auto; }
 }
 
 /* O poema vem do Markdown em parágrafos; sem isto, a estrofe abre
