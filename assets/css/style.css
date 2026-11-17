@@ -92,6 +92,9 @@
   --cor-cinza-claro: var(--cor-rosado);    /* filetes e bordas */
   --cor-cinza-fundo: color-mix(in srgb, var(--cor-rosado) 22%, white); /* fundo de card */
 
+  /* Cardo só em título e no logotipo. Todo o resto — menu, botões,
+     legendas, currículo, poema, texto corrido — é Raleway. Duas fontes
+     e dois papéis, sem exceção no meio do caminho. */
   --font-display: 'Cardo', Georgia, 'Times New Roman', serif;
   --font-body: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
@@ -302,7 +305,7 @@ main:focus { outline: none; }
 
 .site-nav__item > a {
   color: var(--cor-tinta);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.82rem;
   text-transform: uppercase;
@@ -370,7 +373,7 @@ main:focus { outline: none; }
 .lang-switch {
   order: 2;
   margin-left: auto;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 0.82rem;
   font-weight: 600;
   white-space: nowrap;
@@ -530,7 +533,7 @@ main:focus { outline: none; }
   min-height: 44px;
   background: var(--cor-destaque);
   color: #fff;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -559,7 +562,7 @@ main:focus { outline: none; }
 }
 
 .section__eyebrow {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -574,7 +577,7 @@ main:focus { outline: none; }
    sozinhas no celular em vez de virar um parágrafo de maiúsculas. */
 .section-index { margin: 0 0 2rem; }
 .section-index__label {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
@@ -631,7 +634,7 @@ main:focus { outline: none; }
 .news-list time,
 .news-list .news-list__kicker {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 0.75rem;
   letter-spacing: 0.06em;
@@ -701,7 +704,7 @@ main:focus { outline: none; }
   align-items: center;
   min-height: 44px;
   margin-top: 0.2rem;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.78rem;
@@ -759,7 +762,7 @@ main:focus { outline: none; }
   background: var(--cor-destaque);
   border-radius: 50%;
 }
-.timeline strong { color: var(--cor-destaque-ink); font-family: var(--font-display); font-weight: 700; }
+.timeline strong { color: var(--cor-destaque-ink); font-family: var(--font-body); font-weight: 700; }
 
 .gallery {
   display: grid;
@@ -1098,7 +1101,7 @@ body.menu-open .to-top {
   margin: 2.5rem 0;
   padding-left: 1.5rem;
   border-left: 2px solid var(--cor-apoio-1);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.1rem;
   line-height: 1.9;
   white-space: pre-line;
@@ -1114,7 +1117,7 @@ body.menu-open .to-top {
   margin: 0;
   padding: 2rem 0 2rem 1.5rem;
   border-left: 2px solid var(--cor-apoio-1);
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 1.15rem;
   line-height: 1.8;
 }
@@ -1308,6 +1311,9 @@ body.menu-open .to-top {
    ------------------------------------------------------------------ */
 
 .mg {
+  /* O arquivo da borda rasgada, uma vez só, para as duas peças que têm
+     recorte reto. As de biocelulose já vêm com contorno próprio. */
+  --borda-rasgada: url("/assets/img/elementos/borda-rasgada.svg");
   position: relative;
   container-type: inline-size;
   width: 100%;
@@ -1329,6 +1335,9 @@ body.menu-open .to-top {
   width: 41.48%; height: 57.87%;
   object-fit: fill;
   opacity: var(--op);
+  -webkit-mask-image: var(--borda-rasgada); mask-image: var(--borda-rasgada);
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
 }
 
 /* A biocelulose com fungos, cortada num retângulo inclinado. A
@@ -1342,6 +1351,9 @@ body.menu-open .to-top {
   transform: rotate(-23.1deg);
   overflow: hidden;
   opacity: var(--op);
+  -webkit-mask-image: var(--borda-rasgada); mask-image: var(--borda-rasgada);
+  -webkit-mask-size: 100% 100%; mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
 }
 .mg__fungos img {
   position: absolute;
@@ -1353,12 +1365,17 @@ body.menu-open .to-top {
 
 /* As duas biocelulosen inteiras já vêm recortadas, com fundo
    transparente: só precisam ser postas no lugar e giradas. */
+/* A lâmina maior encosta na borda do palco e era cortada por uma linha
+   reta, de guilhotina. Agora ela se dissolve nos últimos 8% da largura,
+   em vez de terminar de supetão. */
 .mg__bio {
   --op: 0.67;
   left: 33.66%; top: 21.41%;
   width: 65.55%; height: 69.73%;
   transform: rotate(7.39deg);
   opacity: var(--op);
+  -webkit-mask-image: linear-gradient(to right, #000 86%, transparent 99%);
+  mask-image: linear-gradient(to right, #000 86%, transparent 99%);
 }
 .mg__bio2 {
   --op: 0.56;
@@ -1370,11 +1387,15 @@ body.menu-open .to-top {
 
 /* O título, por cima de tudo.
 
-   As letras são as da Cardo, a fonte do manual. O logotipo original
-   foi desenhado com outra fonte, de olho mais alto: as palavras aqui
-   ocupam exatamente a mesma largura que lá, mas são cerca de um
-   décimo mais baixas. Foi a aproximação possível sem o arquivo
-   original. */
+   O logotipo do manual é escrito em Cardo — confirmado medindo, não
+   no olho: comparei a proporção das palavras "corpo" e "Escavação"
+   no manual com as mesmas palavras em 26 fontes serifadas, e só a
+   Cardo bate nas duas (erro abaixo de meio por cento).
+
+   As duas palavras não têm o mesmo tamanho: "Escavação" é menor que
+   "corpo", e é isso que o manual faz. Os quatro tamanhos abaixo
+   foram calculados para que cada palavra ocupe exatamente a mesma
+   caixa que ocupa lá. */
 .mg__titulo {
   position: absolute;
   inset: 0;
@@ -1388,10 +1409,10 @@ body.menu-open .to-top {
   white-space: nowrap;
 }
 
-.mg__o         { left: 16.2%;  top: 20.6%;  font-size: 16.5cqw;  color: var(--cor-branco); }
-.mg__corpo     { left: 28.27%; top: 17.24%; font-size: 20.83cqw; color: var(--cor-preto); }
-.mg__como      { left: 42.3%;  top: 38.6%;  font-size: 5.9cqw;   color: var(--cor-branco); }
-.mg__escavacao { left: 6.34%;  top: 41.79%; font-size: 18.64cqw; color: var(--cor-bordo); }
+.mg__o         { left: 15.94%; top: 17.77%; font-size: 19.86cqw; color: var(--cor-branco); }
+.mg__corpo     { left: 28.03%; top: 16.15%; font-size: 21.60cqw; color: var(--cor-preto); }
+.mg__como      { left: 41.29%; top: 38.51%; font-size: 6.31cqw;  color: var(--cor-branco); }
+.mg__escavacao { left: 7.06%;  top: 40.80%; font-size: 19.95cqw; color: var(--cor-bordo); }
 
 /* ---------- A entrada ----------
 
@@ -1526,7 +1547,7 @@ body.exposicao::after {
 }
 .obra--destaque figcaption strong {
   display: block;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-weight: 700;
   font-size: 1.45rem;
   color: var(--cor-bordo);
@@ -1534,4 +1555,112 @@ body.exposicao::after {
 }
 @media (max-width: 900px) {
   .obra--destaque { grid-template-columns: 1fr; align-items: start; gap: 1rem; }
+}
+
+/* ==================================================================
+   PASSAGEM PARA A PRÓXIMA PÁGINA
+   ==================================================================
+
+   No fim de cada página, um link para a seguinte, com a seta
+   desenhada à mão do manual. A seta não é imagem colada: é máscara.
+   O arquivo SVG diz só o formato; a cor vem da paleta, então a mesma
+   seta serve em bordô, em ocre ou sobre fundo escuro.
+
+   Ela entra riscada da esquerda para a direita, como quem desenha com
+   carvão — primeiro o rodopio, depois o rabo, por último a ponta.
+   O risco só acontece quando a seta aparece na tela, e uma vez só.
+   ------------------------------------------------------------------ */
+
+.passagem {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1rem 1.25rem 4rem;
+}
+
+.passagem a {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  gap: 0 1.1rem;
+  color: var(--cor-bordo);
+  text-decoration: none;
+}
+.passagem a:hover { text-decoration: none; }
+
+.passagem__rotulo {
+  grid-column: 1;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cor-ocre);
+}
+
+.passagem__nome {
+  grid-column: 1;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.1;
+  border-bottom: 2px solid transparent;
+}
+.passagem a:hover .passagem__nome { border-bottom-color: var(--cor-bordo); }
+
+.passagem__seta {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  width: clamp(5.5rem, 14vw, 9rem);
+  height: clamp(2.2rem, 5.6vw, 3.6rem);
+  background-color: currentColor;
+  -webkit-mask-image: url("/assets/img/elementos/seta-espiral.svg");
+          mask-image: url("/assets/img/elementos/seta-espiral.svg");
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+  -webkit-mask-size: contain;     mask-size: contain;
+  -webkit-mask-position: center;  mask-position: center;
+  transition: transform 0.25s ease;
+}
+
+/* O traço sendo feito. Sem JavaScript a seta aparece pronta: o estado
+   escondido só vale quando a classe js está no html, e quem a põe é a
+   primeira linha do cabeçalho da página. */
+@keyframes risca-seta {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+.js .passagem__seta { clip-path: inset(0 100% 0 0); }
+.js .passagem--vista .passagem__seta {
+  animation: risca-seta 1.1s cubic-bezier(0.33, 0.1, 0.25, 1) forwards;
+}
+
+/* Sob o cursor a seta avança um pouco, como quem puxa a página. */
+.passagem a:hover .passagem__seta { transform: translateX(0.4rem); }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .passagem__seta { clip-path: none; animation: none; }
+  .passagem a:hover .passagem__seta { transform: none; }
+}
+
+@media (max-width: 520px) {
+  .passagem a { grid-template-columns: 1fr; }
+  .passagem__seta { grid-column: 1; grid-row: 3; margin-top: 0.6rem; }
+}
+
+/* ---------- Capitular ----------
+   A primeira letra do parágrafo, grande, na cor do "Escavação" do
+   logotipo. Abre um texto longo com ar de catálogo impresso, e não
+   usa imagem nenhuma. Uma por página, no primeiro parágrafo. */
+
+.capitular::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 3.4rem;
+  line-height: 0.8;
+  padding: 0.3rem 0.55rem 0 0;
+  color: var(--cor-bordo);
+}
+/* A letra grande é flutuante: sem isto, o parágrafo seguinte sobe e se
+   enfia no vão ao lado dela quando o primeiro é curto. */
+.capitular + p { clear: left; }
+@media (max-width: 520px) {
+  .capitular::first-letter { font-size: 2.8rem; }
 }

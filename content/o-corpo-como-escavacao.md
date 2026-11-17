@@ -68,7 +68,7 @@ Sou, enfim, parte da memória de um corpo ancestral.
 
 ## A pintura como escavação
 
-Nesta série, a artista investiga a pintura como campo de sedimentação e escavação.
+<p class="capitular"><p class="capitular">Nesta série, a artista investiga a pintura como campo de sedimentação e escavação.</p></p>
 
 Utilizando geotintas, pigmentos minerais, carvão e giz pastel cerâmico, aproxima a
 prática pictórica de processos geológicos e ecológicos. A matéria não é apenas meio,
@@ -131,3 +131,11 @@ acompanhamento de Cláudia Madella-Auricchio.</p>
 </figure>
 
 </section>
+
+<nav class="passagem" aria-label="Próxima página">
+  <a href="/trabalhos/">
+    <span class="passagem__rotulo">A seguir</span>
+    <span class="passagem__nome">Trabalhos</span>
+    <span class="passagem__seta" aria-hidden="true"></span>
+  </a>
+</nav>
