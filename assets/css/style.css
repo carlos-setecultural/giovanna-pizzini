@@ -241,21 +241,37 @@ main:focus { outline: none; }
   margin-top: -0.12em;
 }
 
-/* O nome da artista, miúdo, abaixo da marca: o site é dela, a
-   exposição é o que ele mostra agora. */
-.marca__artista {
-  display: block;
+/* O nome da artista, na outra ponta do cabeçalho, levando à página
+   dela. Fica no mesmo lugar que o seletor de idioma vai ocupar quando o
+   site for bilíngue — por isso usa o mesmo `order: 2` e a mesma margem
+   automática, que é o que empurra os dois para a direita. */
+.site-header__artista {
+  order: 2;
+  margin-left: auto;
+  align-self: center;
   font-family: var(--font-body);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--cor-marrom);
-  margin-top: 0.5rem;
+  white-space: nowrap;
+  padding: 0.3rem 0;
+  border-bottom: 2px solid transparent;
+}
+.site-header__artista:hover,
+.site-header__artista[aria-current="page"] {
+  color: var(--cor-bordo);
+  border-bottom-color: var(--cor-bordo);
+  text-decoration: none;
 }
 
 @media (max-width: 480px) {
   .marca { font-size: 1.4rem; }
+}
+
+@media (max-width: 420px) {
+  .site-header__artista { display: none; }
 }
 
 /* Título de seção em bordô, como no manual. Só vale dentro de
@@ -801,11 +817,12 @@ main:focus { outline: none; }
 @media (max-width: 780px) {
   :root { --header-height: 72px; }
 
-  /* No celular o cabeçalho é uma faixa só, e a marca inteira não cabe
-     nela. Fica o logotipo; o nome da artista sai, porque ele já abre
-     todas as páginas e a etiqueta do link continua dizendo os dois. */
+  /* No celular o cabeçalho é uma faixa só: a marca encolhe e o nome da
+     artista vira uma linha miúda, ainda na outra ponta. Abaixo de 420 px
+     não cabem os dois mais o botão do menu, e o nome sai — a página dela
+     continua a um toque de distância, no menu. */
   .marca { font-size: 1.3rem; }
-  .marca__artista { display: none; }
+  .site-header__artista { font-size: 0.62rem; letter-spacing: 0.1em; }
   .site-nav__list { gap: 0.7rem; }
   .site-nav__submenu { position: static; display: block; border: none; box-shadow: none; padding-left: 0.75rem; background: transparent; }
   .site-nav__item--has-children:hover .site-nav__submenu,
@@ -1267,3 +1284,254 @@ body.menu-open .to-top {
 /* O poema vem do Markdown em parágrafos; sem isto, a estrofe abre
    um buraco grande demais. */
 .poema p { margin: 0 0 1.4rem; }
+
+/* ==================================================================
+   A MARCA GRANDE — a composição da página 4 do manual, animada
+   ==================================================================
+
+   O logotipo do manual não é um desenho: são quatro fotografias
+   sobrepostas e um título por cima. Aqui cada peça é um elemento
+   separado, posicionado em porcentagem dentro de um palco de
+   proporção fixa (810 por 648 pontos, o recorte da página).
+
+   As medidas não foram estimadas no olho: saíram das matrizes de
+   colocação do próprio PDF — cada figura é posta na página por uma
+   matriz de posição, giro e escala, e são elas que viraram as
+   porcentagens, os ângulos e as opacidades abaixo. Por isso os
+   números têm casas decimais estranhas.
+
+   O palco precisa guardar a proporção para que as peças giradas não
+   entortem quando a tela muda de largura; é o que faz o
+   `aspect-ratio`. E o `container-type` é o que permite medir o
+   tamanho das letras em `cqw` — porcentagem da largura do palco —
+   para que o título cresça e encolha junto com as figuras.
+   ------------------------------------------------------------------ */
+
+.mg {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+  aspect-ratio: 810 / 648;
+  margin: 0;
+  overflow: hidden;
+}
+
+.mg__peca {
+  position: absolute;
+  display: block;
+  margin: 0;
+}
+
+/* A parede da gruta: um retângulo reto, a 72% de opacidade. */
+.mg__gruta {
+  --op: 0.72;
+  left: 34.86%; top: 7.04%;
+  width: 41.48%; height: 57.87%;
+  object-fit: fill;
+  opacity: var(--op);
+}
+
+/* A biocelulose com fungos, cortada num retângulo inclinado. A
+   moldura gira; a foto dentro dela está de cabeça para baixo e
+   ampliada, como no manual — por isso a moldura esconde o que passa
+   da borda. */
+.mg__fungos {
+  --op: 1;
+  left: 6.32%; top: 8.39%;
+  width: 30.70%; height: 46.02%;
+  transform: rotate(-23.1deg);
+  overflow: hidden;
+  opacity: var(--op);
+}
+.mg__fungos img {
+  position: absolute;
+  width: 285.9%; height: 159.0%;
+  left: -0.1%; top: -38.9%;
+  transform: rotate(180deg);
+  max-width: none;
+}
+
+/* As duas biocelulosen inteiras já vêm recortadas, com fundo
+   transparente: só precisam ser postas no lugar e giradas. */
+.mg__bio {
+  --op: 0.67;
+  left: 33.66%; top: 21.41%;
+  width: 65.55%; height: 69.73%;
+  transform: rotate(7.39deg);
+  opacity: var(--op);
+}
+.mg__bio2 {
+  --op: 0.56;
+  left: 3.46%; top: 14.41%;
+  width: 43.61%; height: 46.42%;
+  transform: rotate(-99.22deg) scaleY(-1);
+  opacity: var(--op);
+}
+
+/* O título, por cima de tudo.
+
+   As letras são as da Cardo, a fonte do manual. O logotipo original
+   foi desenhado com outra fonte, de olho mais alto: as palavras aqui
+   ocupam exatamente a mesma largura que lá, mas são cerca de um
+   décimo mais baixas. Foi a aproximação possível sem o arquivo
+   original. */
+.mg__titulo {
+  position: absolute;
+  inset: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+}
+.mg__titulo span {
+  position: absolute;
+  display: block;
+  white-space: nowrap;
+}
+
+.mg__o         { left: 16.2%;  top: 20.6%;  font-size: 16.5cqw;  color: var(--cor-branco); }
+.mg__corpo     { left: 28.27%; top: 17.24%; font-size: 20.83cqw; color: var(--cor-preto); }
+.mg__como      { left: 42.3%;  top: 38.6%;  font-size: 5.9cqw;   color: var(--cor-branco); }
+.mg__escavacao { left: 6.34%;  top: 41.79%; font-size: 18.64cqw; color: var(--cor-bordo); }
+
+/* ---------- A entrada ----------
+
+   As figuras chegam uma a uma, da última para a primeira: primeiro a
+   que está por cima de todas, e cada seguinte aparece por baixo —
+   como quem escava e vai encontrando o que estava embaixo. Só
+   depois o título.
+
+   Anima-se `opacity` e `scale`. O `scale` é propriedade própria,
+   separada do `transform`: assim o giro de cada peça continua de pé
+   enquanto a animação mexe só no tamanho. Se fosse tudo no
+   `transform`, a animação apagaria a rotação. */
+
+@keyframes mg-entra {
+  from { opacity: 0; scale: 1.07; }
+  to   { opacity: var(--op); scale: 1; }
+}
+@keyframes mg-titulo-entra {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.mg--anima .mg__peca,
+.mg--anima .mg__titulo {
+  opacity: 0;
+  animation-duration: 0.85s;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation-fill-mode: both;
+}
+.mg--anima .mg__peca { animation-name: mg-entra; }
+.mg--anima .mg__titulo { animation-name: mg-titulo-entra; animation-duration: 1.1s; }
+
+.mg--anima .mg__bio2  { animation-delay: 0.15s; }
+.mg--anima .mg__bio   { animation-delay: 0.55s; }
+.mg--anima .mg__fungos{ animation-delay: 0.95s; }
+.mg--anima .mg__gruta { animation-delay: 1.35s; }
+.mg--anima .mg__titulo{ animation-delay: 2.1s; }
+
+/* Quem pediu ao sistema para reduzir animações vê a marca montada,
+   sem entrada nenhuma. */
+@media (prefers-reduced-motion: reduce) {
+  .mg--anima .mg__peca,
+  .mg--anima .mg__titulo {
+    animation: none;
+    opacity: var(--op, 1);
+    scale: 1;
+  }
+}
+
+/* ---------- A abertura da página da exposição ---------- */
+
+.abertura-marca {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 0;
+}
+
+/* Título que só o leitor de tela anuncia: a marca ao lado já o diz
+   para quem enxerga, e repetir por escrito seria dizer duas vezes. */
+.so-leitor {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Fundo de folha, como no manual ----------
+   Todas as páginas do material têm a mesma fotografia de nervuras de
+   folha ao fundo, a 6% — quase um papel. Aqui ela fica presa à
+   janela, atrás de tudo, e não rola com o texto. */
+
+body.exposicao { background: transparent; }
+body.exposicao::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--cor-fundo) url('/assets/img/texturas/folha.jpg') center / cover no-repeat;
+}
+body.exposicao::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--cor-fundo);
+  opacity: 0.94;
+}
+
+/* ---------- Faixa de camadas geológicas ----------
+   Um filete em camadas, com as cores da paleta: o mesmo raciocínio
+   das "camadas geológicas" do manual — linhas de espessuras
+   irregulares, uma sobre a outra. Serve para separar seções sem
+   precisar de mais uma fotografia. */
+
+.camadas {
+  height: 10px;
+  border: 0;
+  margin: 3.5rem auto;
+  max-width: var(--max-width);
+  background:
+    linear-gradient(var(--cor-bordo) 0 2px, transparent 2px),
+    linear-gradient(var(--cor-ocre) 0 3px, transparent 3px),
+    linear-gradient(var(--cor-marrom) 0 1px, transparent 1px),
+    linear-gradient(var(--cor-rosado) 0 4px, transparent 4px);
+  background-repeat: no-repeat;
+  background-position: 0 0, 0 3px, 0 7px, 0 9px;
+}
+
+/* ---------- Obra em destaque ----------
+   A primeira obra da seção ganha a tela inteira e a ficha ao lado, em
+   vez de embaixo. Numa página de exposição é o equivalente à parede
+   principal: a pessoa entra e vê uma obra, não uma lista. Abaixo de
+   900 px a ficha volta para baixo da imagem, que é o único lugar onde
+   cabe. */
+
+.obra--destaque {
+  display: grid;
+  grid-template-columns: minmax(0, 2.1fr) minmax(14rem, 1fr);
+  gap: 2rem;
+  align-items: end;
+  margin: 0 0 3rem;
+}
+.obra--destaque img { width: 100%; }
+.obra--destaque figcaption {
+  border-top: 2px solid var(--cor-bordo);
+  padding-top: 0.9rem;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.obra--destaque figcaption strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--cor-bordo);
+  margin-bottom: 0.2rem;
+}
+@media (max-width: 900px) {
+  .obra--destaque { grid-template-columns: 1fr; align-items: start; gap: 1rem; }
+}

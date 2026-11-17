@@ -16,21 +16,28 @@
   <link rel="preload" href="/assets/fonts/raleway-400700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body>
+{# Algumas páginas pedem um fundo ou um tratamento próprio: o campo
+   `bodyClass` do cabeçalho do arquivo entra aqui como classe. #}
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
   {# Primeira parada do teclado em qualquer página: salta o menu inteiro e
      leva ao texto. Fica escondido acima da tela até receber o foco. #}
   <a class="skip-link" href="#main">Pular para o conteúdo</a>
 
   <header class="site-header">
     <div class="site-header__inner">
-      {# A marca da exposição, montada com as próprias letras da Cardo —
-         ver .marca no style.css. O aria-label é o que o leitor de tela
-         anuncia; os pedaços visuais ficam escondidos dele para que não
-         soletre "o corpo como Escavação Giovanna Pizzini" aos pedaços. #}
-      <a class="site-header__brand marca" href="/" aria-label="O corpo como Escavação, exposição de {{ site.nome }} — ir para a página inicial">
+      {# Duas entradas no cabeçalho, uma em cada ponta: à esquerda a marca
+         da exposição, que leva à página inicial; à direita o nome da
+         artista, que leva à página dela. O site é das duas coisas, e
+         separá-las deixa claro qual link vai para onde.
+
+         A marca é montada com as próprias letras da Cardo — ver .marca no
+         style.css. O aria-label é o que o leitor de tela anuncia; os
+         pedaços visuais ficam escondidos dele para que não soletre o nome
+         aos pedaços. #}
+      <a class="site-header__brand marca" href="/" aria-label="O corpo como Escavação — ir para a página inicial">
         <span class="marca__lockup" aria-hidden="true"><span class="marca__o">o</span>corpo<span class="marca__como">como</span><span class="marca__escavacao">Escavação</span></span>
-        <span class="marca__artista" aria-hidden="true">{{ site.nome }}</span>
       </a>
+      <a class="site-header__artista" href="/sobre/">{{ site.nome }}</a>
       <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
         <button type="button" class="menu-close" aria-label="Fechar menu">
           <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
