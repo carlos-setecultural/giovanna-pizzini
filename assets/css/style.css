@@ -1,38 +1,106 @@
 /* ------------------------------------------------------------------
    Estilos do site.
 
-   A paleta e as fontes estão aqui no topo, como variáveis: muda o
-   valor aqui e o site inteiro muda junto. Nunca escreva uma cor solta
-   no meio do arquivo — use var(--cor-...).
+   A paleta e as fontes vêm do Material de Identidade Visual da
+   exposição "O corpo como Escavação". Os seis tons e as duas fontes
+   estão aqui no topo, como variáveis: muda o valor aqui e o site
+   inteiro muda junto. Nunca escreva uma cor solta no meio do arquivo —
+   use var(--cor-...).
 
    A estrutura (cabeçalho fixo, menu de celular, cards, rodapé) veio do
-   molde. As cores e as fontes são as da artista.
+   molde. As cores e as fontes são as da exposição.
    ------------------------------------------------------------------ */
 
-:root {
-  /* Paleta — troque estes valores pelos seus */
-  --cor-destaque: #8a4a22;       /* botões, bordas, destaques */
-  --cor-destaque-ink: #7a3f1c;   /* o mesmo tom, escurecido para links sobre o fundo claro */
-  --cor-destaque-dark: #653115;  /* botão sob o cursor */
-  --cor-tinta: #1d1a17;          /* texto e fundos escuros */
-  --cor-fundo: #f6f3ee;          /* fundo das páginas */
-  --cor-apoio-1: #c98a3c;        /* destaque sobre fundo escuro, ícones */
-  --cor-apoio-2: #6b6253;        /* destaque secundário */
-  --cor-apoio-2-ink: #564f42;    /* o mesmo tom, escurecido para texto sobre o fundo claro */
-  --cor-cinza: #5a5248;
-  --cor-cinza-claro: #e2dcd2;
-  --cor-cinza-fundo: #efebe4;
+/* ---------- Fontes ----------
+   Cardo nos títulos e Raleway no texto, as duas do manual. Ficam
+   hospedadas aqui mesmo, em assets/fonts/, e não no Google: assim a
+   página não depende de um servidor de fora para desenhar o texto e
+   ninguém que visita o site é registrado por terceiros. Licença OFL —
+   ver assets/fonts/LEIA-ME.txt. */
 
-  /* Fontes — hoje são as do próprio sistema, que carregam na hora.
-     Para usar uma fonte de marca, declare um @font-face acima e troque
-     o nome aqui. */
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/cardo-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/assets/fonts/cardo-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/cardo-700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cardo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/assets/fonts/cardo-700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* Raleway é fonte variável: um arquivo só cobre do peso 400 ao 700. */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fonts/raleway-400700-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fonts/raleway-400700-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* As seis cores do manual, com o nome que elas têm lá. Só estas seis
+     existem: tudo abaixo é apelido de uma delas. */
+  --cor-bordo: #722410;          /* bordô terroso */
+  --cor-ocre: #a5590f;           /* ocre queimado */
+  --cor-marrom: #583d28;         /* marrom profundo */
+  --cor-rosado: #bcb2b2;         /* cinza rosado */
+  --cor-branco: #ffffff;
+  --cor-preto: #000000;
+
+  /* Os apelidos: dizem para que serve a cor, não qual ela é. É por
+     estes nomes que o resto do arquivo chama. */
+  --cor-destaque: var(--cor-bordo);        /* botões, bordas, destaques */
+  --cor-destaque-ink: var(--cor-bordo);    /* links sobre o fundo claro */
+  --cor-destaque-dark: color-mix(in srgb, var(--cor-bordo) 80%, black); /* botão sob o cursor */
+  --cor-tinta: var(--cor-preto);           /* texto e fundos escuros */
+  --cor-fundo: var(--cor-branco);          /* fundo das páginas */
+  --cor-apoio-1: var(--cor-ocre);          /* destaque sobre fundo escuro, ícones */
+  --cor-apoio-2: var(--cor-marrom);        /* destaque secundário */
+  --cor-apoio-2-ink: var(--cor-marrom);    /* texto de apoio sobre o fundo claro */
+  --cor-cinza: var(--cor-marrom);
+  --cor-cinza-claro: var(--cor-rosado);    /* filetes e bordas */
+  --cor-cinza-fundo: color-mix(in srgb, var(--cor-rosado) 22%, white); /* fundo de card */
+
+  --font-display: 'Cardo', Georgia, 'Times New Roman', serif;
+  --font-body: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
 
   --max-width: 1120px;
-  /* Altura do cabeçalho fixo. O menu.js mede o valor real e corrige;
-     este aqui é o que vale enquanto o JavaScript não roda. */
-  --header-height: 140px;
+  /* Altura do cabeçalho fixo. Medida no cabeçalho deste site, com a
+     marca de três linhas: 129 px no computador e 72 px no celular. O
+     menu.js mede de novo e corrige; estes valores são o que vale no
+     instante antes de o JavaScript rodar. */
+  --header-height: 130px;
 }
 
 * { box-sizing: border-box; }
@@ -61,7 +129,7 @@ strong { font-weight: 700; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.01em;
   line-height: 1.15;
   margin: 0 0 0.5em;
@@ -128,6 +196,74 @@ main:focus { outline: none; }
 }
 
 .site-header__brand { order: 1; }
+
+/* ---------- A marca da exposição, no cabeçalho ----------
+   O logotipo do manual é uma composição de letras, não um desenho: o
+   "o" em ocre, "corpo" em preto e "Escavação" em bordô, com "como"
+   encaixado entre as duas linhas. Aqui ele é feito com as próprias
+   letras da Cardo, e não com uma imagem — assim fica nítido em
+   qualquer tela, cresce junto com o texto e um leitor de tela
+   consegue ler o nome. As medidas estão em "em" para que tudo
+   acompanhe o tamanho definido em .marca. */
+
+.marca {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--cor-preto);
+  text-decoration: none;
+}
+.marca:hover, .marca:focus { text-decoration: none; }
+
+.marca__lockup { display: block; }
+
+.marca__o {
+  color: var(--cor-ocre);
+  font-size: 0.62em;
+  margin-right: 0.08em;
+}
+
+/* "como" fica pendurado abaixo da primeira linha, recuado até debaixo
+   do "c" de corpo, como no manual. A altura negativa é o que faz as
+   três linhas se encaixarem em vez de empilharem. */
+.marca__como {
+  display: block;
+  font-size: 0.4em;
+  color: var(--cor-ocre);
+  margin: -0.02em 0 0 2.15em;
+  letter-spacing: 0.01em;
+}
+
+.marca__escavacao {
+  display: block;
+  color: var(--cor-bordo);
+  margin-top: -0.12em;
+}
+
+/* O nome da artista, miúdo, abaixo da marca: o site é dela, a
+   exposição é o que ele mostra agora. */
+.marca__artista {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cor-marrom);
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 480px) {
+  .marca { font-size: 1.4rem; }
+}
+
+/* Título de seção em bordô, como no manual. Só vale dentro de
+   .section, que é sempre fundo claro — nos blocos escuros (hero,
+   rodapé, capa) o título já tem cor própria. */
+.section h1,
+.section h2,
+.section h3 { color: var(--cor-bordo); }
 
 /* linha 1: logo à esquerda, idiomas à direita; linha 2: menu em largura total */
 .site-nav {
@@ -277,7 +413,7 @@ main:focus { outline: none; }
 .hero p {
   max-width: 46ch;
   font-size: 1.1rem;
-  color: rgba(244, 233, 211, 0.85);
+  color: var(--cor-rosado);
 }
 
 /* O símbolo do topo, em vetor.
@@ -491,8 +627,9 @@ main:focus { outline: none; }
 .news-list p { margin: 0; color: var(--cor-cinza); font-size: 0.97rem; }
 
 .join {
-  /* o tom escurecido, não o oliva puro: o parágrafo em creme sobre o oliva
-     puro dá 4,32 de contraste, abaixo do mínimo de 4,5 para texto normal */
+  /* marrom profundo, a cor mais escura da paleta depois do preto: o
+     texto em branco sobre ele dá 9,3 de contraste, bem acima do mínimo
+     de 4,5 exigido para texto normal */
   background: var(--cor-apoio-2-ink);
   color: var(--cor-fundo);
   margin-top: 3.5rem;
@@ -606,7 +743,7 @@ main:focus { outline: none; }
   background: var(--cor-destaque);
   border-radius: 50%;
 }
-.timeline strong { color: var(--cor-destaque-ink); font-family: var(--font-display); font-weight: 800; }
+.timeline strong { color: var(--cor-destaque-ink); font-family: var(--font-display); font-weight: 700; }
 
 .gallery {
   display: grid;
@@ -637,7 +774,10 @@ main:focus { outline: none; }
 
 .site-footer {
   background: var(--cor-tinta);
-  color: rgba(244, 233, 211, 0.85);
+  /* cinza rosado sobre o preto: o creme de antes era cor solta, de fora
+     da paleta, e o ocre não tem contraste suficiente para texto miúdo
+     sobre fundo preto */
+  color: var(--cor-rosado);
   margin-top: 3rem;
 }
 .join + .site-footer, main:has(> .join:last-child) + .site-footer { margin-top: 0; }
@@ -652,11 +792,20 @@ main:focus { outline: none; }
   width: auto;
   margin: 0 auto 1rem;
 }
-.site-footer a { color: var(--cor-apoio-1); text-decoration: underline; }
+/* O link no rodapé é branco, e não ocre: ocre sobre preto dá 3,3 de
+   contraste, abaixo dos 4,5 que texto miúdo exige. O branco também o
+   separa do texto ao redor, que é cinza rosado. */
+.site-footer a { color: var(--cor-branco); text-decoration: underline; }
 .site-footer p { font-size: 0.9rem; }
 
 @media (max-width: 780px) {
-  :root { --header-height: 210px; }
+  :root { --header-height: 72px; }
+
+  /* No celular o cabeçalho é uma faixa só, e a marca inteira não cabe
+     nela. Fica o logotipo; o nome da artista sai, porque ele já abre
+     todas as páginas e a etiqueta do link continua dizendo os dois. */
+  .marca { font-size: 1.3rem; }
+  .marca__artista { display: none; }
   .site-nav__list { gap: 0.7rem; }
   .site-nav__submenu { position: static; display: block; border: none; box-shadow: none; padding-left: 0.75rem; background: transparent; }
   .site-nav__item--has-children:hover .site-nav__submenu,
@@ -704,11 +853,11 @@ main:focus { outline: none; }
 @media (max-width: 780px) {
   .js .site-header__inner {
     flex-wrap: nowrap;
-    height: 64px;
+    height: 72px;
     padding: 0 0.5rem 0 1rem;
     gap: 0.25rem;
   }
-  .js { --header-height: 64px; }
+  .js { --header-height: 72px; }
   .js .site-header__logo { height: 40px; }
   .js .menu-toggle { display: inline-flex; order: 3; }
 

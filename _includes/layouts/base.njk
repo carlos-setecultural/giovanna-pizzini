@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }} · {{ site.nome }}</title>
   <meta name="description" content="{{ description or site.descricao }}">
-  <meta name="theme-color" content="#1e2228">
+  <meta name="theme-color" content="#722410">
   <script>document.documentElement.classList.add('js');</script>
+  {# Ícone da aba e do atalho na tela do celular. O SVG serve para o
+     navegador em qualquer tamanho; o PNG é o que o iPhone usa. #}
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  {# A fonte do texto corrido entra antes de tudo: é a que segura a
+     primeira tela: #}
+  <link rel="preload" href="/assets/fonts/raleway-400700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
@@ -16,7 +23,14 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__brand" href="/">{{ site.nome }}</a>
+      {# A marca da exposição, montada com as próprias letras da Cardo —
+         ver .marca no style.css. O aria-label é o que o leitor de tela
+         anuncia; os pedaços visuais ficam escondidos dele para que não
+         soletre "o corpo como Escavação Giovanna Pizzini" aos pedaços. #}
+      <a class="site-header__brand marca" href="/" aria-label="O corpo como Escavação, exposição de {{ site.nome }} — ir para a página inicial">
+        <span class="marca__lockup" aria-hidden="true"><span class="marca__o">o</span>corpo<span class="marca__como">como</span><span class="marca__escavacao">Escavação</span></span>
+        <span class="marca__artista" aria-hidden="true">{{ site.nome }}</span>
+      </a>
       <nav class="site-nav" id="site-nav" aria-label="Navegação principal">
         <button type="button" class="menu-close" aria-label="Fechar menu">
           <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>

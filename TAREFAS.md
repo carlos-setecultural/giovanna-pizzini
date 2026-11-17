@@ -67,18 +67,64 @@ arquivo pequeno, e as listagens se montam sozinhas.
 
 ## 4. Identidade visual
 
-- [ ] Trocar a paleta no topo de `assets/css/style.css`. A atual é de espera —
-      aquele verde é da RELAHO. Em site de artista a regra é a página sumir:
-      fundo neutro, espaço em branco, a imagem manda.
-- [ ] Trocar as fontes (`--font-display` e `--font-body`), se quiser fontes
-      próprias em vez das do sistema.
-- [ ] Criar o favicon e acrescentar as linhas `<link rel="icon">` no
-      `_includes/layouts/base.njk`.
-- [ ] Revisar o `--header-height: 140px`, que foi medido no cabeçalho do molde.
-      O `menu.js` corrige o valor assim que carrega; o 140 px só vale no
-      instante antes disso. *(Os restos do molde nos comentários do CSS já
-      saíram.)*
+Em 17/11/2026 chegou o **Material de Identidade Visual** da exposição, 27
+páginas feitas no Canva. É de lá que vêm as cores, as fontes, o logotipo, os
+elementos gráficos e a régua de logos. O arquivo está em
+`Downloads/Material de Identidade visual - O corpo como escavação_20261106_124253_0000.pdf`
+— fora do repositório, porque é material bruto.
+
+- [x] Paleta trocada pelas seis cores do manual: bordô terroso `#722410`,
+      ocre queimado `#A5590F`, marrom profundo `#583D28`, cinza rosado
+      `#BCB2B2`, branco e preto. Estão no topo do `assets/css/style.css`,
+      com o nome que têm no manual; todo o resto do arquivo chama por apelidos
+      (`--cor-destaque`, `--cor-fundo`…) que apontam para elas.
+- [x] Fontes trocadas por **Cardo** (títulos) e **Raleway** (texto), as duas do
+      manual. Ficam hospedadas em `assets/fonts/`, e não no Google: a página
+      não depende de servidor de fora e ninguém que visita é registrado por
+      terceiros. Licença e procedência em `assets/fonts/LEIA-ME.txt`.
+- [x] Favicon criado (`assets/img/favicon.svg`) e ligado no
+      `_includes/layouts/base.njk`, junto com o ícone do iPhone.
+- [x] `--header-height` revisado: era 140 px de chute e 210 px no celular.
+      Medido no cabeçalho de verdade, com a marca nova: **130 px** no
+      computador e **72 px** no celular.
 - [ ] Escrever a página inicial de verdade, no lugar do texto de exemplo.
+
+### O que o manual trouxe e ainda não entrou no site
+
+- [ ] **Arquivo original do logotipo.** O logotipo do cabeçalho hoje é montado
+      com as próprias letras da Cardo (ver `.marca` no CSS) — nítido em
+      qualquer tela e legível por leitor de tela. Mas o manual tem **duas**
+      versões: essa, só de letras, e outra com texturas de pedra e biocelulose
+      por trás. Para usar a segunda é preciso o arquivo de quem montou o
+      material, de preferência PNG com fundo transparente. Recortar do PDF sai
+      no tamanho em que foi colocado na página.
+- [ ] **Régua de logos no rodapé.** O manual traz a régua obrigatória em quatro
+      faixas: FOMENTO (PROAC SP), PRODUÇÃO (Angola Produções), APOIO (Instituto
+      Arte & Ciência, JB, MAGMA, FNMN museu) e REALIZAÇÃO (CultSP, Governo de
+      SP, SNC, Aldir Blanc, Ministério da Cultura, Governo do Brasil). Num
+      projeto de edital isso não é opcional. O CSS já tem a classe
+      `.site-footer__logo`, herdada do molde, sem uso.
+- [ ] **Confirmar quem é a produção.** A régua do manual diz **Angola
+      Produções**. A SETE Cultural não aparece em nenhuma página do documento —
+      mas é o e-mail da SETE que está hoje no rodapé do site, e foi o logotipo
+      da SETE que entrou como "Produção" no PDF de apresentação de 05/11. Antes
+      de montar a régua, acertar qual é o papel de cada uma.
+- [ ] **Texturas e elementos gráficos.** O manual entrega três texturas de
+      fundo (barro alaranjado, papel creme, biocelulose) e um conjunto de
+      elementos: espiral/fóssil, camadas geológicas, célula orgânica, raízes,
+      setas desenhadas à mão e um ícone de "clique aqui". Nada disso está no
+      site ainda. É a parte mais autoral e a que mais pede revisão.
+- [ ] **Texto da videoarte.** O manual traz o texto oficial de *"Escavações do
+      Imaginário"* — videoarte gravada na Gruta da Lapinha, Lagoa Santa, MG,
+      com as palavras-chave e a assinatura da artista e da curadora. Falta a
+      Giovanna confirmar se é uma obra **dentro** da exposição O Corpo como
+      Escavação (é como está escrito aqui) ou outra coisa, e em que página do
+      site ele entra.
+- [ ] **Fotos de obra em qualidade melhor.** O manual tem fotos de trabalhos em
+      exposição, esculturas em biocelulose e a biocelulose em macro, todas
+      melhores que os recortes do portfólio que o site usa hoje. Não entraram
+      porque falta saber **o que é cada obra e quem fotografou** — ver a
+      seção 5.
 
 ## 5. Material que falta pedir à artista
 
@@ -126,3 +172,10 @@ da curadoria.
 - [ ] **A foto da série ENTRE PELES é um print de tela do Photoshop.** Aparecem
       os painéis do programa e a barra de tarefas do Windows. Veio assim do
       recorte do PDF. Precisa sair, tendo ou não substituta à mão.
+
+- [x] **Retrato da artista trocado** (17/11/2026). A foto de `Sobre` era um
+      recorte do portfólio; agora é um dos três retratos de estúdio do manual
+      de identidade, extraído do PDF no tamanho original (1200 × 800) e
+      recortado em pé. **Falta o crédito de quem fotografou** e a confirmação
+      de que ela autoriza a publicação — o `CLAUDE.md` exige os dois para
+      foto de pessoa.

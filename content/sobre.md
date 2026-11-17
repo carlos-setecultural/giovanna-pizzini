@@ -7,7 +7,7 @@ description: Giovanna Pizzini, n. 1997, São Paulo. Vive e trabalha em Belo Hori
 <section class="section">
 
 <div class="bio">
-  <img class="bio__retrato" src="/assets/img/retrato.jpg" alt="A artista observa, contra a luz, uma lâmina de biocelulose presa entre placas de acrílico.">
+  <img class="bio__retrato" src="/assets/img/retrato.jpg" alt="Retrato de Giovanna Pizzini: cabelo escuro e cacheado, blusa branca, sobre fundo cinza de estúdio.">
   <div class="bio__texto">
 
 # Giovanna Pizzini
