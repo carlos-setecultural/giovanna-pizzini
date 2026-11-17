@@ -1,0 +1,13 @@
+# Arquivos que o git nunca deve tratar como texto. Sem esta lista, um
+# clone em outra máquina pode trocar as quebras de linha dentro de uma
+# fonte ou de uma foto e estragar o arquivo em silêncio.
+*.woff2 binary
+*.woff  binary
+*.ttf   binary
+*.otf   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.webp  binary
+*.pdf   binary
+*.mp4   binary

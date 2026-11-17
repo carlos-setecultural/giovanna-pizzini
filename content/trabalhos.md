@@ -8,11 +8,13 @@ description: As séries de Giovanna Pizzini, entre performance, instalação, fo
 
 # Trabalhos
 
-<p class="lede">Transitando entre performance, instalação, fotografia e
+<p class="lede capitular">Transitando entre performance, instalação, fotografia e
 videoperformance, a artista opera o corpo como campo de mediação, tensionando as
 fronteiras entre interioridade e exterioridade, natureza e técnica.</p>
 
 </section>
+
+<hr class="camadas">
 
 <section class="section">
 
@@ -140,3 +142,11 @@ fronteiras entre interioridade e exterioridade, natureza e técnica.</p>
 </article>
 
 </section>
+
+<nav class="passagem" aria-label="Próxima página">
+  <a href="/sobre/">
+    <span class="passagem__rotulo">A seguir</span>
+    <span class="passagem__nome">Sobre a artista</span>
+    <span class="passagem__seta" aria-hidden="true"></span>
+  </a>
+</nav>

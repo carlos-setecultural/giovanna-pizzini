@@ -7,7 +7,7 @@ description: Giovanna Pizzini, n. 1997, São Paulo. Vive e trabalha em Belo Hori
 <section class="section">
 
 <div class="bio">
-  <img class="bio__retrato" src="/assets/img/retrato.jpg" alt="A artista observa, contra a luz, uma lâmina de biocelulose presa entre placas de acrílico.">
+  <img class="bio__retrato" src="/assets/img/retrato.jpg" alt="Retrato de Giovanna Pizzini: cabelo escuro e cacheado, blusa branca, sobre fundo cinza de estúdio.">
   <div class="bio__texto">
 
 # Giovanna Pizzini
@@ -15,10 +15,10 @@ description: Giovanna Pizzini, n. 1997, São Paulo. Vive e trabalha em Belo Hori
 <p class="ficha">n. 1997, São Paulo, Brasil<br>
 Vive e trabalha em Belo Horizonte, MG, Brasil</p>
 
-Giovanna Pizzini é artista visual e produtora cultural, graduada em Cinema e
+<p class="capitular">Giovanna Pizzini é artista visual e produtora cultural, graduada em Cinema e
 Audiovisual pelo CEUNSP (2020). Sua prática se desenvolve na interseção entre arte,
 ciência e tecnologia, a partir do uso de materiais orgânicos e processos
-experimentais.
+experimentais.</p>
 
 Sua pesquisa investiga a construção de dispositivos sensíveis e sistemas relacionais
 que articulam corpo, materialidade e ambiente.
@@ -35,6 +35,8 @@ propondo deslocamentos na percepção do humano em relação ao seu entorno.
 </div>
 
 </section>
+
+<hr class="camadas">
 
 <section class="section section--estreita">
 
@@ -60,6 +62,8 @@ percepção se co-constroem.
 </blockquote>
 
 </section>
+
+<hr class="camadas">
 
 <section class="section section--estreita" id="curriculo">
 
@@ -138,3 +142,11 @@ percepção se co-constroem.
 </ul>
 
 </section>
+
+<nav class="passagem" aria-label="Próxima página">
+  <a href="/contato/">
+    <span class="passagem__rotulo">A seguir</span>
+    <span class="passagem__nome">Contato</span>
+    <span class="passagem__seta" aria-hidden="true"></span>
+  </a>
+</nav>

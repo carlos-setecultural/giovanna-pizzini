@@ -2,6 +2,6 @@
   { "label": "Início", "url": "/" },
   { "label": "O Corpo como Escavação", "url": "/o-corpo-como-escavacao/" },
   { "label": "Trabalhos", "url": "/trabalhos/" },
-  { "label": "Sobre", "url": "/sobre/" },
+  { "label": "Sobre a artista", "url": "/sobre/" },
   { "label": "Contato", "url": "/contato/" }
 ]

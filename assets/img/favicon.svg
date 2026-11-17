@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="O corpo como Escavação">
+  <!-- O "o" do logotipo, sozinho: é a única letra que tem cor própria na
+       marca, e é a que ainda se reconhece num ícone de 16 pixels. Desenhado
+       como contorno, e não escrito com a fonte, para não depender de a
+       Cardo estar instalada em quem abre o arquivo. Cores do manual:
+       bordô terroso no fundo, branco na letra. -->
+  <rect width="64" height="64" fill="#722410"/>
+  <path fill="#ffffff" fill-rule="evenodd"
+        d="M32 16.5a19 17.5 0 1 0 0 35 19 17.5 0 1 0 0-35Z
+           M32 21.5a8 12.5 0 1 1 0 25 8 12.5 0 1 1 0-25Z"/>
+</svg>

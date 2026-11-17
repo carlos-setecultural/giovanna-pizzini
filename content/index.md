@@ -22,6 +22,8 @@ biocelulose, argila e geotinta.</p>
 
 </section>
 
+<hr class="camadas">
+
 <section class="section">
 
 <p class="section__eyebrow">Em destaque</p>
@@ -41,6 +43,8 @@ biocelulose, argila e geotinta.</p>
 </div>
 
 </section>
+
+<hr class="camadas">
 
 <section class="section">
 
@@ -66,3 +70,11 @@ biocelulose, argila e geotinta.</p>
 <p><a href="/trabalhos/">Ver todas as séries</a></p>
 
 </section>
+
+<nav class="passagem" aria-label="Próxima página">
+  <a href="/o-corpo-como-escavacao/">
+    <span class="passagem__rotulo">A exposição</span>
+    <span class="passagem__nome">O Corpo como Escavação</span>
+    <span class="passagem__seta" aria-hidden="true"></span>
+  </a>
+</nav>

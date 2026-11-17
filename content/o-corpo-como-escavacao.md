@@ -2,15 +2,26 @@
 layout: layouts/base.njk
 title: O Corpo como Escavação
 description: Exposição de Giovanna Pizzini no Instituto de Arte e Ciência, São Lourenço da Serra, com curadoria de Cláudia Madella-Auricchio.
+bodyClass: exposicao
 ---
 
-<section class="abertura">
-  <img src="/assets/img/obras/sem-titulo-i-detalhe-2.jpg" alt="Detalhe de pintura em barro e carvão sobre tela, com traços escuros sobre fundo terroso.">
+<section class="abertura-marca">
+
+<h1 class="so-leitor">O Corpo como Escavação</h1>
+
+<div class="mg mg--anima" aria-hidden="true">
+  <img class="mg__peca mg__gruta" src="/assets/img/marca/gruta.jpg" alt="" width="548" height="613">
+  <div class="mg__peca mg__fungos"><img src="/assets/img/marca/fungos.jpg" alt="" width="1000" height="667"></div>
+  <img class="mg__peca mg__bio" src="/assets/img/marca/biocelulose.webp" alt="" width="900" height="768">
+  <img class="mg__peca mg__bio2" src="/assets/img/marca/biocelulose-fungos.webp" alt="" width="679" height="579">
+  <div class="mg__titulo">
+    <span class="mg__o">o</span><span class="mg__corpo">corpo</span><span class="mg__como">como</span><span class="mg__escavacao">Escavação</span>
+  </div>
+</div>
+
 </section>
 
 <section class="section section--estreita">
-
-# O Corpo como Escavação
 
 <p class="ficha">Instituto de Arte e Ciência, São Lourenço da Serra — SP, 2025<br>
 Curadoria: Cláudia Madella-Auricchio</p>
@@ -51,11 +62,13 @@ Sou, enfim, parte da memória de um corpo ancestral.
 
 </section>
 
+<hr class="camadas">
+
 <section class="section section--estreita">
 
 ## A pintura como escavação
 
-Nesta série, a artista investiga a pintura como campo de sedimentação e escavação.
+<p class="capitular"><p class="capitular">Nesta série, a artista investiga a pintura como campo de sedimentação e escavação.</p></p>
 
 Utilizando geotintas, pigmentos minerais, carvão e giz pastel cerâmico, aproxima a
 prática pictórica de processos geológicos e ecológicos. A matéria não é apenas meio,
@@ -80,15 +93,18 @@ acompanhamento de Cláudia Madella-Auricchio.</p>
 
 </section>
 
+<hr class="camadas">
+
 <section class="section">
 
 <p class="section__eyebrow">Obras</p>
 
-<figure class="obra obra--larga">
+<figure class="obra obra--destaque">
   <img src="/assets/img/obras/scyphocrinites-2025.jpg" alt="Pintura em tons de ocre e terracota sobre tela, com formas ramificadas que lembram um fóssil marinho.">
   <figcaption>
-    <strong>Scyphocrinites</strong>, 2025.<br>
-    Pigmentos minerais, carvão e geotinta sobre tela. 30 × 30 × 1 cm.
+    <strong>Scyphocrinites</strong>
+    2025. Pigmentos minerais, carvão e geotinta sobre tela.<br>
+    30 × 30 × 1 cm.
   </figcaption>
 </figure>
 
@@ -115,3 +131,11 @@ acompanhamento de Cláudia Madella-Auricchio.</p>
 </figure>
 
 </section>
+
+<nav class="passagem" aria-label="Próxima página">
+  <a href="/trabalhos/">
+    <span class="passagem__rotulo">A seguir</span>
+    <span class="passagem__nome">Trabalhos</span>
+    <span class="passagem__seta" aria-hidden="true"></span>
+  </a>
+</nav>

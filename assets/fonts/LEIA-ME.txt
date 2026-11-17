@@ -1,0 +1,26 @@
+Fontes do site
+==============
+
+Cardo e Raleway, as duas do Material de Identidade Visual da exposição
+"O corpo como Escavação".
+
+Cardo    — David Perry
+Raleway  — Matt McInerney, Pablo Impallari, Rodrigo Fuenzalida
+
+As duas estão sob a SIL Open Font License 1.1, que permite usar,
+redistribuir e hospedar no próprio servidor, inclusive em trabalho
+comercial. O texto da licença está em:
+
+  Cardo    https://fonts.google.com/specimen/Cardo/license
+  Raleway  https://fonts.google.com/specimen/Raleway/license
+
+Os arquivos .woff2 aqui são os recortes "latin" e "latin-ext" servidos
+pelo Google Fonts, baixados e guardados no repositório de propósito: a
+página não depende de um servidor de fora para desenhar o texto, e quem
+visita o site não é registrado por terceiros.
+
+O arquivo da Raleway é uma fonte variável: um arquivo só cobre todos os
+pesos de 400 a 700.
+
+Para atualizar, baixe de novo de fonts.google.com e troque os arquivos
+mantendo os mesmos nomes.
